@@ -5,10 +5,20 @@
     <h1>Student Portal</h1>
   </nav>
 
-  <div class="register">
+  <div class="card register">
     <p>If You Don't Have An Account !</p>
     <p>Click The Button Below To Register Your Account.</p>
+    <router-link :to = "{name: 'RegisterPage'}">
     <button class="regButton">Register -></button>
+    </router-link>
+  </div>
+
+  <div class="card login">
+    <p>If You Have An Account !</p>
+    <p>Click The Button Below To Login To Your Account.</p>
+    <router-link :to = "{name: 'LoginPage'}">
+    <button class="logButton">Login -></button>
+    </router-link>
   </div>
 </div>
 
@@ -36,8 +46,7 @@ nav{
   position: absolute;
   top: 0;
   left: 0;
-  background: white;
-  color: rgb(77, 75, 75);
+  color: black;
   box-shadow: 0 0 5px 2px black;
   display: flex;
   justify-content: center;
@@ -56,7 +65,7 @@ h1{
   height: 26%;
   position: absolute;
   top: 22%;
-  left: 5%;
+  left: 7%;
   background: white;
   color: black;
   box-shadow: 0 0 5px 2px black;
@@ -72,14 +81,49 @@ h1{
   transition: 0.3s;
   font-size: 17px;
   font-weight: 550;
-  color: pink;
+  color: blue;
+  font-family: "Rubik", sans-serif;
+  font-weight: 550;
 }
+
 .regButton:hover{
   transform: translateX(10px);
-  color: rgb(236, 217, 217);
+  color: rgb(76, 125, 216);
   cursor: pointer;
+  border-bottom: 1px solid cornflowerblue;
 }
 
+.login{
+  width: 34%;
+  height: 26%;
+  position: absolute;
+  top: 22%;
+  left: 55%;
+  background: white;
+  color: black;
+  box-shadow: 0 0 5px 2px black;
+  padding: 1% 2%;
+  font-size: 2.7vh;
+  font-weight: 550;
+  font-family: "Rubik", sans-serif;
+}
 
+.logButton{
+  border: none;
+  background: transparent;
+  transition: 0.3s;
+  font-size: 17px;
+  font-weight: 550;
+  color: blue;
+  font-family: "Rubik", sans-serif;
+  font-weight: 550;
+}
+
+.logButton:hover{
+  transform: translateX(10px);
+  color: rgb(76, 125, 216);
+  cursor: pointer;
+  border-bottom: 1px solid cornflowerblue;
+}
 
 </style>
