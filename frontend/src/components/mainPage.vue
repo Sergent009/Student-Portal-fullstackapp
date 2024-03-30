@@ -15,7 +15,9 @@
         <hr>
         <div class="options">
           <div class="firsthr">
+          <router-link :to = "{name: 'aboutUbit'}">
           <button>About UBIT</button>
+          </router-link>
           <button>Updata Info</button>
           <button>See About Courses</button>
           <button>LogOut</button>

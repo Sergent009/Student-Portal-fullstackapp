@@ -3,6 +3,7 @@ import HomePage from '../views/HomePage.vue'
 import regPage from '../views/RegisterPage.vue'
 import logPage from '../views/LoginPage.vue'
 import mainPage from '../views/MainPage.vue'
+import aboutUbit from '../views/AboutUbit.vue'
 
 const routes = [
   {
@@ -24,7 +25,12 @@ const routes = [
     path: '/Home',
     name: 'mainPage',
     component: mainPage
-  }
+  },
+  {
+    path: '/aboutUbit',
+    name: 'aboutUbit',
+    component: aboutUbit
+  },
 ]
 
 const router = createRouter({
