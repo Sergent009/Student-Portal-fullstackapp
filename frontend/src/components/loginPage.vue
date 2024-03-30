@@ -53,6 +53,10 @@ export default {
         this.loggedIn = true;
         this.email = '';
         this.password = '';
+
+        setTimeout(() => {
+          this.$router.push('/Home')
+        }, 1000)
       } catch (error) {
         console.error('Login failed:', error);
       }

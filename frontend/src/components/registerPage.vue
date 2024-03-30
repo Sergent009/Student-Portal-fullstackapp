@@ -65,6 +65,10 @@ export default {
         this.semester = null,
         this.email = '',
         this.password = ''
+
+        setTimeout(() => {
+          this.$router.push('/Home')
+        }, 1000)
       }
       catch(err){
         console.log(err)
