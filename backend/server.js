@@ -22,7 +22,6 @@ app.post('/regST', (req, res) => {
     })
 })
 
-
 app.post('/loginST', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -50,6 +49,21 @@ app.post('/loginST', async (req, res) => {
     }
 });
 
+app.put('/updateST/:id', (req, res) => {
+    const id = req.params.id
+    const {firstname, lastname, semester, email, password} = req.body
+    db.query('update student set s_firstname = ?, s_lastname = ?, s_semester = ?, s_email = ?, s_password = ? where id = ?',
+    [firstname, lastname, semester, email, password, id], (err,result) => {
+        if(err){
+            console.log('error occuring while updating the data !.')
+            res.sendStatus(500)
+        }
+        else{
+            console.log('successfully updated the data.')
+            res.sendStatus(200)
+        }
+    })
+})
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)

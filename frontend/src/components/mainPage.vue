@@ -18,7 +18,9 @@
           <router-link :to = "{name: 'aboutUbit'}">
           <button>About UBIT</button>
           </router-link>
+          <router-link :to = "{name: 'updInfo'}">
           <button>Update Info</button>
+          </router-link>
           <button>See About Courses</button>
           <router-link :to = "{name: 'HomePage'}">
           <button>LogOut</button>

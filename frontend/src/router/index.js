@@ -4,6 +4,7 @@ import regPage from '../views/RegisterPage.vue'
 import logPage from '../views/LoginPage.vue'
 import mainPage from '../views/MainPage.vue'
 import aboutUbit from '../views/AboutUbit.vue'
+import updInfo from '../views/UpdateInfo.vue'
 
 const routes = [
   {
@@ -27,10 +28,15 @@ const routes = [
     component: mainPage
   },
   {
-    path: '/aboutUbit',
+    path: '/Home/:myid/aboutUbit',
     name: 'aboutUbit',
     component: aboutUbit
   },
+  {
+    path: '/Home/updateInfo/:myid',
+    name: 'updInfo',
+    component: updInfo
+  }
 ]
 
 const router = createRouter({
