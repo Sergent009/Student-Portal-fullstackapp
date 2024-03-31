@@ -50,7 +50,14 @@ export default {
   data(){
     return{
       showSidebar: false,
+      // Initialize userId to null
+      // userId: null
     }
+  },
+
+  created() {
+    // Access the user ID from the route parameters
+    // this.userId = this.$route.params.myid;
   },
 
   methods:{

@@ -22,7 +22,7 @@ const routes = [
     component: logPage
   },
   {
-    path: '/Home',
+    path: '/Home/:myid',
     name: 'mainPage',
     component: mainPage
   },

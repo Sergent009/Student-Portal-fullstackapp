@@ -57,17 +57,20 @@ export default {
   methods: {
     async loginStudent() {
       try {
-        await axios.post("http://localhost:3003/loginST", {
+        const response = await axios.post("http://localhost:3003/loginST", {
           email: this.email,
           password: this.password,
         });
+
+        // Assuming your API returns the user ID in the response
+        const userId = response.data.id;
 
         this.loggedIn = true;
         this.email = "";
         this.password = "";
 
         setTimeout(() => {
-          this.$router.push("/Home");
+          this.$router.push({ name: "mainPage", params: { myid: userId } });
         }, 1000);
       } catch (error) {
         console.error("Login failed:", error);

@@ -22,31 +22,34 @@ app.post('/regST', (req, res) => {
     })
 })
 
-app.post('/loginST', (req, res) => {
-    const {email, password} = req.body
-    db.query('select * from student where s_email = ? and s_password = ?',
-    [email, password], (err, result) => {
-        if(err){
-            console.log('Error Ocured while executing the login query !', err)
-            res.status(500).send('Error!')
-        }
-        else{
-            console.log('successfully checked email and password')
 
-            if(result.length > 0){
-                console.log('email and password found!')
-                res.status(200).send(result[0].s_firstname)
-                const myid = result[0].id
-                console.log(myid)
-                // res.redirect(`/Home/${myid}`);
-            }
-            else{
-                console.log('email or password is not found!')
-                res.status(404)
-            }
+app.post('/loginST', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const result = await new Promise((resolve, reject) => {
+            db.query('select * from student where s_email = ? and s_password = ?', [email, password], (err, result) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+
+        if (result.length > 0) {
+            console.log('email and password found!');
+            const id = result[0].id;
+            res.status(200).send({ id: id }); // Sending id back as JSON
+        } else {
+            console.log('email or password is not found!');
+            res.status(404).send('Email or password is not found');
         }
-    })
-})
+    } catch (err) {
+        console.log('Error Ocured while executing the login query !', err);
+        res.status(500).send('Error!');
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
