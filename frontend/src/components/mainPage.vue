@@ -18,9 +18,11 @@
           <router-link :to = "{name: 'aboutUbit'}">
           <button>About UBIT</button>
           </router-link>
-          <button>Updata Info</button>
+          <button>Update Info</button>
           <button>See About Courses</button>
+          <router-link :to = "{name: 'HomePage'}">
           <button>LogOut</button>
+          </router-link>
           </div>
         </div>
       </div>
@@ -47,7 +49,7 @@ business, law, and social sciences.</pre>
 export default {
   data(){
     return{
-      showSidebar: false
+      showSidebar: false,
     }
   },
 
@@ -55,7 +57,7 @@ export default {
     showingSidebar(){
       this.showSidebar = !this.showSidebar
     }
-  }
+  },
 }
 </script>
 

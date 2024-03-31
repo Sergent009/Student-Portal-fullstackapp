@@ -10,12 +10,22 @@
 
     <div v-if="!loggedIn" class="inputDataFields">
       <div class="field">
-        <input type="email" class="input" placeholder="Enter Email Address .." v-model="email">
-        <br><br><br>
+        <input
+          type="email"
+          class="input"
+          placeholder="Enter Email Address .."
+          v-model="email"
+        />
+        <br /><br /><br />
       </div>
       <div class="field">
-        <input type="password" class="input" placeholder="Enter Password .." v-model="password">
-        <br><br><br>
+        <input
+          type="password"
+          class="input"
+          placeholder="Enter Password .."
+          v-model="password"
+        />
+        <br /><br /><br />
       </div>
     </div>
 
@@ -32,43 +42,44 @@
 
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  data(){
-    return{
-      email: '',
-      password: '',
-        loggedIn: false
-    }
+  data() {
+    return {
+      email: "",
+      password: "",
+      loggedIn: false,
+      id: null,
+    };
   },
 
   methods: {
-   async loginStudent() {
+    async loginStudent() {
       try {
-        await axios.post('http://localhost:3003/loginST', {
+        await axios.post("http://localhost:3003/loginST", {
           email: this.email,
-          password: this.password
+          password: this.password,
         });
+
         this.loggedIn = true;
-        this.email = '';
-        this.password = '';
+        this.email = "";
+        this.password = "";
 
         setTimeout(() => {
-          this.$router.push('/Home')
-        }, 1000)
+          this.$router.push("/Home");
+        }, 1000);
       } catch (error) {
-        console.error('Login failed:', error);
+        console.error("Login failed:", error);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>
-
-.loginButton{
-   position: absolute;
+.loginButton {
+  position: absolute;
   top: 50vh;
   left: 65vh;
   width: 70vh;
@@ -78,15 +89,16 @@ export default {
   border: none;
   color: black;
   font-family: "Rubik", sans-serif;
-  transition: .1s;
+  transition: 0.1s;
 }
 
-.loginButton:hover{
+.loginButton:hover {
   border-bottom: 2px solid black;
   cursor: pointer;
 }
 
-fade-enter-active, .fade-leave-active {
+fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
@@ -108,5 +120,4 @@ fade-enter-active, .fade-leave-active {
   font-weight: 600;
   font-family: "Rubik", sans-serif;
 }
-
 </style>

@@ -36,6 +36,9 @@ app.post('/loginST', (req, res) => {
             if(result.length > 0){
                 console.log('email and password found!')
                 res.status(200).send(result[0].s_firstname)
+                const myid = result[0].id
+                console.log(myid)
+                // res.redirect(`/Home/${myid}`);
             }
             else{
                 console.log('email or password is not found!')
