@@ -72,6 +72,20 @@ export default {
 
 <style scoped>
 
+nav{
+  width: 100%;
+  height: 8%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  box-shadow: 0 0 5px 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+}
+
 .UOKlogo{
   width: 10vh;
   height: 5vh;
@@ -172,6 +186,7 @@ button:hover{
   top: 7vh;
   left: 3vh;
   font-size: 6vh;
+  font-family: "Rubik", sans-serif;
 }
 
 .page pre{

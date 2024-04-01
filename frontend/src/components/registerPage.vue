@@ -73,12 +73,26 @@ export default {
       catch(err){
         console.log(err)
       }
-    }
+    },
   }
 }
 </script>
 
 <style>
+
+nav{
+  width: 100%;
+  height: 8%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  box-shadow: 0 0 5px 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+}
 
 .inputDataFields{
   position: absolute;
