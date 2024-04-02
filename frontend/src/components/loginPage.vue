@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <nav>
+      <img class="UOKlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeGsYWxz_BVyQta9BQMzCUwjxbBadyjR05DZhKH6-98g&s">
       <h1>Login Student</h1>
     </nav>
 
@@ -93,6 +94,18 @@ nav{
   justify-content: center;
   align-items: center;
   font-family: "Rubik", sans-serif;
+}
+
+.UOKlogo{
+  width: 10vh;
+  height: 5vh;
+  position: absolute;
+  top: 2vh;
+  left: 3vh;
+}
+
+.UOKlogo:hover{
+  cursor: pointer;
 }
 
 .loginButton {
