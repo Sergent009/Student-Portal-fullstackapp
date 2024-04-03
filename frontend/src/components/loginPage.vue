@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <nav>
-      <img class="UOKlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeGsYWxz_BVyQta9BQMzCUwjxbBadyjR05DZhKH6-98g&s">
+      <img
+        class="UOKlogo"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeGsYWxz_BVyQta9BQMzCUwjxbBadyjR05DZhKH6-98g&s"
+      />
       <h1>Login Student</h1>
     </nav>
 
@@ -35,7 +38,7 @@
         <button class="loginButton" @click="loginStudent">Login</button>
       </div>
       <div v-else>
-        <p class="successMessage">Successfully logged in!</p>
+        <logOutAnimation />
       </div>
     </transition>
   </div>
@@ -43,11 +46,14 @@
 
 
 <script>
-import store from '../store'; // Import the Vuex store
-
+import logOutAnimation from "../components/logOutAnimation.vue";
+import store from "../store"; // Import the Vuex store
 import axios from "axios";
 
 export default {
+  components: {
+    logOutAnimation,
+  },
   data() {
     return {
       email: "",
@@ -68,13 +74,13 @@ export default {
         // returning id of the logged in user
         const userId = response.data.id;
 
-        // returning firstName of the logged in user 
+        // returning firstName of the logged in user
         const firstName = response.data.firstName;
-        store.commit('setFirstName', firstName);
+        store.commit("setFirstName", firstName);
 
-        // returning lastName of the logged in user 
-        const lastName = response.data.lastName
-        store.commit('setLastName', lastName)
+        // returning lastName of the logged in user
+        const lastName = response.data.lastName;
+        store.commit("setLastName", lastName);
 
         this.loggedIn = true;
         this.email = "";
@@ -82,7 +88,7 @@ export default {
 
         setTimeout(() => {
           this.$router.push({ name: "mainPage", params: { myid: userId } });
-        }, 1000);
+        }, 2000);
       } catch (error) {
         console.error("Login failed:", error);
       }
@@ -92,7 +98,7 @@ export default {
 </script>
 
 <style scoped>
-nav{
+nav {
   width: 100%;
   height: 8%;
   position: absolute;
@@ -106,7 +112,7 @@ nav{
   font-family: "Rubik", sans-serif;
 }
 
-.UOKlogo{
+.UOKlogo {
   width: 10vh;
   height: 5vh;
   position: absolute;
@@ -114,7 +120,7 @@ nav{
   left: 3vh;
 }
 
-.UOKlogo:hover{
+.UOKlogo:hover {
   cursor: pointer;
 }
 

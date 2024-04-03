@@ -1,87 +1,121 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="!animation">
     <nav>
-      <img class="UOKlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeGsYWxz_BVyQta9BQMzCUwjxbBadyjR05DZhKH6-98g&s">
-     <h1>Register Student</h1>
+      <img
+        class="UOKlogo"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeGsYWxz_BVyQta9BQMzCUwjxbBadyjR05DZhKH6-98g&s"
+      />
+      <h1>Register Student</h1>
     </nav>
 
-    <router-link :to = "{name: 'HomePage'}">
+    <router-link :to="{ name: 'HomePage' }">
       <button class="backHomePage">Back</button>
     </router-link>
 
     <div class="inputDataFields">
       <div class="field">
-        <input type="text" class="input" placeholder="Enter Your First Name .." v-model="firstname">
-        <br><br><br>
+        <input
+          type="text"
+          class="input"
+          placeholder="Enter Your First Name .."
+          v-model="firstname"
+        />
+        <br /><br /><br />
       </div>
       <div class="field">
-        <input type="text" class="input" placeholder="Enter Your Last Name .." v-model="lastname">
-        <br><br><br>
+        <input
+          type="text"
+          class="input"
+          placeholder="Enter Your Last Name .."
+          v-model="lastname"
+        />
+        <br /><br /><br />
       </div>
       <div class="field">
-        <input type="number" class="input" placeholder="Enter Your Semester .." v-model="semester">
-        <br><br><br>
+        <input
+          type="number"
+          class="input"
+          placeholder="Enter Your Semester .."
+          v-model="semester"
+        />
+        <br /><br /><br />
       </div>
       <div class="field">
-        <input type="email" class="input" placeholder="Enter Your Email Adress .." v-model="email">
-        <br><br><br>
+        <input
+          type="email"
+          class="input"
+          placeholder="Enter Your Email Adress .."
+          v-model="email"
+        />
+        <br /><br /><br />
       </div>
       <div class="field">
-        <input type="password" class="input" placeholder="Enter Your Password .." v-model="password">
-        <br><br><br>
+        <input
+          type="password"
+          class="input"
+          placeholder="Enter Your Password .."
+          v-model="password"
+        />
+        <br /><br /><br />
       </div>
     </div>
 
     <button class="registerButton" @click="registerStudent">Register</button>
   </div>
+
+  <logOutAnimation v-if="animation" />
 </template>
 
 <script>
-import axios from 'axios'
+import logOutAnimation from "../components/logOutAnimation.vue";
+import axios from "axios";
 
 export default {
-  data(){
-    return{
-      firstname: '',
-      lastname: '',
+  components: {
+    logOutAnimation,
+  },
+  data() {
+    return {
+      firstname: "",
+      lastname: "",
       semester: null,
-      email: '',
-      password: ''
-    }
+      email: "",
+      password: "",
+      animation: false,
+    };
   },
 
   methods: {
-    async registerStudent(){
-      try{
-      await axios.post('http://localhost:3003/regST', {
-        s_firstname: this.firstname,
-        s_lastname: this.lastname,
-        s_semester: this.semester,
-        s_email: this.email,
-        s_password: this.password
-      })
+    async registerStudent() {
+      try {
+        await axios.post("http://localhost:3003/regST", {
+          s_firstname: this.firstname,
+          s_lastname: this.lastname,
+          s_semester: this.semester,
+          s_email: this.email,
+          s_password: this.password,
+        });
 
-        this.firstname = '',
-        this.lastname = '',
-        this.semester = null,
-        this.email = '',
-        this.password = ''
+        (this.firstname = ""),
+          (this.lastname = ""),
+          (this.semester = null),
+          (this.email = ""),
+          (this.password = "");
 
+        this.animation = true;
         setTimeout(() => {
-          this.$router.push('/login')
-        }, 1000)
-      }
-      catch(err){
-        console.log(err)
+          this.$router.push("/login");
+        }, 2000);
+      } catch (err) {
+        console.log(err);
       }
     },
-  }
-}
+  },
+};
 </script>
 
 <style>
-
-nav{
+nav {
   width: 100%;
   height: 8%;
   position: absolute;
@@ -95,7 +129,7 @@ nav{
   font-family: "Rubik", sans-serif;
 }
 
-.UOKlogo{
+.UOKlogo {
   width: 10vh;
   height: 5vh;
   position: absolute;
@@ -103,11 +137,11 @@ nav{
   left: 3vh;
 }
 
-.UOKlogo:hover{
+.UOKlogo:hover {
   cursor: pointer;
 }
 
-.inputDataFields{
+.inputDataFields {
   position: absolute;
   top: 20%;
   left: 33%;
@@ -115,7 +149,7 @@ nav{
   height: 76vh;
 }
 
-.input{
+.input {
   width: 65vh;
   height: 5vh;
   border: none;
@@ -127,7 +161,7 @@ nav{
   padding: 0.4vh 2vh;
 }
 
-.input:focus{
+.input:focus {
   outline: none;
   border-bottom: 2px solid black;
   transition-duration: 0.3s ease-in;
@@ -135,7 +169,7 @@ nav{
   font-weight: 450;
 }
 
-.registerButton{
+.registerButton {
   position: absolute;
   top: 80vh;
   left: 110vh;
@@ -146,15 +180,15 @@ nav{
   border: none;
   color: black;
   font-family: "Rubik", sans-serif;
-  transition: .1s;
+  transition: 0.1s;
 }
 
-.registerButton:hover{
+.registerButton:hover {
   border-bottom: 2px solid black;
   cursor: pointer;
 }
 
-.backHomePage{
+.backHomePage {
   position: absolute;
   top: 12vh;
   left: 3vh;
@@ -166,9 +200,8 @@ nav{
   font-weight: 550;
 }
 
-.backHomePage:hover{
+.backHomePage:hover {
   border-bottom: 2px solid black;
   cursor: pointer;
 }
-
 </style>
