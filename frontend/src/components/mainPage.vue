@@ -2,6 +2,7 @@
   <div class="container">
     <nav>
       <h1>Welcome To Protal</h1>
+      <h2>{{ $store.state.firstName }}</h2>
       <img class="UOKlogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeGsYWxz_BVyQta9BQMzCUwjxbBadyjR05DZhKH6-98g&s">
     <div class="logo" @click="showingSidebar">
     <svg class="sidebar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg>
@@ -48,25 +49,19 @@ business, law, and social sciences.</pre>
 </template>
 
 <script>
+
 export default {
   data(){
     return{
       showSidebar: false,
-      // Initialize userId to null
-      // userId: null
     }
-  },
-
-  created() {
-    // Access the user ID from the route parameters
-    // this.userId = this.$route.params.myid;
   },
 
   methods:{
     showingSidebar(){
       this.showSidebar = !this.showSidebar
-    }
-  },
+    },
+  }
 }
 </script>
 

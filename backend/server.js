@@ -38,7 +38,8 @@ app.post('/loginST', async (req, res) => {
         if (result.length > 0) {
             console.log('email and password found!');
             const id = result[0].id;
-            res.status(200).send({ id: id }); // Sending id back as JSON
+            const firstName = result[0].s_firstname.charAt(0)
+            res.status(200).send({ id: id, firstName: firstName }); // Sending id back as JSON
         } else {
             console.log('email or password is not found!');
             res.status(404).send('Email or password is not found');

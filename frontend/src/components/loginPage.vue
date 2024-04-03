@@ -43,6 +43,8 @@
 
 
 <script>
+import store from '../store'; // Import the Vuex store
+
 import axios from "axios";
 
 export default {
@@ -63,8 +65,12 @@ export default {
           password: this.password,
         });
 
-        // Assuming your API returns the user ID in the response
+        // returning id of the logged in user
         const userId = response.data.id;
+
+        // returning firstName of the logged in user 
+        const firstName = response.data.firstName;
+        store.commit('setFirstName', firstName);
 
         this.loggedIn = true;
         this.email = "";
