@@ -24,15 +24,21 @@
       </div>
       <div class="field">
         <input type="email" class="input" placeholder="Enter Your Email Adress .." v-model="email">
+        <br>
+        <!-- Display error message if email is invalid -->
+        <span v-if="!isValidEmail" class="error-message">Email Adress should contain @</span>
         <br><br><br>
       </div>
       <div class="field">
         <input type="password" class="input" placeholder="Enter Your Password .." v-model="password">
+        <br>
+        <!-- Display error message if password is invalid -->
+        <span v-if="!isValidPassword" class="error-message">Password should be at least 8 characters</span>
         <br><br><br>
       </div>
     </div>
 
-    <button class="registerButton" @click="updateStudentInfo">Update</button>
+    <button class="registerButton" @click="updateStudentInfo" :disabled = "!isValidEmail || !isValidPassword">Update</button>
   </div>
 </template>
 
@@ -74,6 +80,17 @@ export default {
       catch(err){
         console.log(err)
       }
+    },
+  },
+
+  computed: {
+    // Check if email is valid (contains '@' sign)
+    isValidEmail() {
+      return this.email.includes('@');
+    },
+    // Check if password is valid (at least 8 characters)
+    isValidPassword() {
+      return this.password.length >= 8;
     },
   }
 }
@@ -169,6 +186,12 @@ nav{
 .backHomePage:hover{
   border-bottom: 2px solid black;
   cursor: pointer;
+}
+
+.error-message {
+  color: rgb(56, 55, 55);
+  font-size: 2.5vh;
+  font-family: "Rubik", sans-serif;
 }
 
 </style>
