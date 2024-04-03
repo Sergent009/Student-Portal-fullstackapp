@@ -68,8 +68,7 @@ export default {
         this.password = ''
 
         setTimeout(() => {
-          this.$router.push('/Home')
-          // this.$router.push({ name: "mainPage", params: { myid: userId } });
+          this.$router.push('/login')
         }, 1000)
       }
       catch(err){

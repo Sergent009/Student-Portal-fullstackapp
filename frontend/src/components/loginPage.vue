@@ -72,6 +72,10 @@ export default {
         const firstName = response.data.firstName;
         store.commit('setFirstName', firstName);
 
+        // returning lastName of the logged in user 
+        const lastName = response.data.lastName
+        store.commit('setLastName', lastName)
+
         this.loggedIn = true;
         this.email = "";
         this.password = "";

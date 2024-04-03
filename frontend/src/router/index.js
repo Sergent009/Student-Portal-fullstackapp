@@ -27,11 +27,6 @@ const routes = [
     name: 'mainPage',
     component: mainPage
   },
-  // {
-  //   path: '/Home',
-  //   name: 'mainPage',
-  //   component: mainPage
-  // },
   {
     path: '/Home/:myid/aboutUbit',
     name: 'aboutUbit',
