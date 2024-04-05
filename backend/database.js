@@ -1,4 +1,4 @@
-const mysql = require('mysql2')
+import mysql from 'mysql2'
 
 const db = mysql.createConnection({
     host: '127.0.0.1',
@@ -7,4 +7,4 @@ const db = mysql.createConnection({
     database: 'StudentPortaldb'
 })
 
-module.exports = db
+export default db
