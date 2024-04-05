@@ -49,7 +49,9 @@
             <router-link :to="{ name: 'updInfo' }">
               <button>Update Info</button>
             </router-link>
-            <button>See About Courses</button>
+            <router-link :to = "{name: 'hodNames'}">
+            <button>HOD'S</button>
+            </router-link>
             <button @click="showAnimation">LogOut</button>
           </div>
         </div>

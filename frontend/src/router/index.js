@@ -5,6 +5,7 @@ import logPage from '../views/LoginPage.vue'
 import mainPage from '../views/MainPage.vue'
 import aboutUbit from '../views/AboutUbit.vue'
 import updInfo from '../views/UpdateInfo.vue'
+import namesofHod from '../views/HodNames.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/Home/updateInfo/:myid',
     name: 'updInfo',
     component: updInfo
+  },
+  {
+    path: '/Home/HOD\'S',
+    name: 'hodNames',
+    component: namesofHod
   }
 ]
 
